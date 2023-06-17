@@ -1,0 +1,7 @@
+#vi: ft=conf
+# Ansible managed, do not manually edit.
+
+## Access list
+{% for cidr in scanserver__access_list %}
+{{ cidr }}
+{% endfor %}

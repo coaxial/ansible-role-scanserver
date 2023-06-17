@@ -1,2 +1,40 @@
 ---
-# tasks file for scanserver
+- name: "Update apt cache"
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 86400 # 24h
+
+- name: Install packages
+  ansible.builtin.package:
+    name:
+      - sane
+    state: present
+
+- name: Create saned socket
+  ansible.builtin.copy:
+    src: saned.socket
+    dest: /etc/systemd/system/saned.socket
+    owner: root
+    group: root
+    mode: 0755
+  notify: Enable and start saned
+
+# TODO: Firewall config, see Netfilter nf_conntrack_sane connection tracking
+# module
+- name: Configure saned service
+  ansible.builtin.copy:
+    src: saned.service
+    dest: /etc/systemd/system/@saned.service
+    owner: root
+    group: root
+    mode: 0755
+  notify: Enable and start saned
+
+- name: Configure saned
+  ansible.builtin.template:
+    src: saned.conf.j2
+    dest: /etc/sane.d/saned.conf
+    owner: root
+    group: root
+    mode: 0755
+  notify: Enable and start saned
