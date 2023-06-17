@@ -16,3 +16,10 @@ Name | Default | Possible values | Description
       include_role:
         name: coaxial.scanserver
 ```
+
+# Firewall
+
+If the firewall is a Linux machine, use the
+Netfilter nf_conntrack_sane connection
+tracking module instead.
+
