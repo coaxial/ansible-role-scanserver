@@ -12,8 +12,8 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-        - Bullseye
-        - Bookworm
+        - bullseye
+        - bookworm
 
   galaxy_tags: [sane, scanner]
 
