@@ -1,2 +1,6 @@
 ---
-# handlers file for scanserver
+- name: Enable and start saned
+  ansible.builtin.service:
+    name: saned.socket
+    state: restarted
+    enabled: yes

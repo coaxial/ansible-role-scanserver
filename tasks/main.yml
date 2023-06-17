@@ -18,3 +18,26 @@
     group: root
     mode: 0755
     state: present
+  notify: Enable and start saned
+
+# TODO: Firewall config, see Netfilter nf_conntrack_sane connection tracking
+# module
+- name: Configure saned service
+  ansible.builtin.copy:
+    src: saned.service
+    dest: /etc/systemd/system/@saned.service
+    owner: root
+    group: root
+    mode: 0755
+    state: present
+  notify: Enable and start saned
+
+- name: Configure saned
+  ansible.builtin.template:
+    src: saned.conf.j2
+    dest: /etc/sane.d/saned.conf
+    owner: root
+    group: root
+    mode: 0755
+    state: present
+  notify: Enable and start saned
