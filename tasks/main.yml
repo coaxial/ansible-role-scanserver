@@ -17,7 +17,6 @@
     owner: root
     group: root
     mode: 0755
-    state: present
   notify: Enable and start saned
 
 # TODO: Firewall config, see Netfilter nf_conntrack_sane connection tracking
@@ -29,7 +28,6 @@
     owner: root
     group: root
     mode: 0755
-    state: present
   notify: Enable and start saned
 
 - name: Configure saned
@@ -39,5 +37,4 @@
     owner: root
     group: root
     mode: 0755
-    state: present
   notify: Enable and start saned
