@@ -4,7 +4,7 @@ Based upon instructions from https://pimylifeup.com/raspberry-pi-scanner-server/
 
 Name | Default | Possible values | Description
 ---|---|---|---
-`access_list` | `192.168.0.0/24` | An array of CIDR notation strings | Hosts that are allowed to access `saned`
+`scanserver__access_list` | `192.168.0.0/24` | An array of CIDR notation strings | Hosts that are allowed to access `saned`
 
 # Example Playbook
 
