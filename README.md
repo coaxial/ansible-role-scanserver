@@ -21,5 +21,5 @@ Name | Default | Possible values | Description
 
 If the firewall is a Linux machine, use the
 Netfilter nf_conntrack_sane connection
-tracking module instead.
+tracking module.
 

@@ -42,4 +42,4 @@ def test_saned_config(host):
     assert file.user == 'root'
     assert file.group == 'root'
     assert file.mode == 0o755
-    assert file.contains('192\.168\.0\.0\/24')
+    assert file.contains(r'^192\.168\.0\.0\/24$')
