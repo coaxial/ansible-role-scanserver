@@ -7,4 +7,4 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_truth(host):
-    assert True == True
+    assert True is True
