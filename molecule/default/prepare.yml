@@ -6,8 +6,3 @@
       ansible.builtin.apt:
         update_cache: yes
         cache_valid_time: 86400 # 24h
-
-    - name: "Install curl (for testinfra test case)"
-      ansible.builtin.package:
-        name: curl
-        state: present
