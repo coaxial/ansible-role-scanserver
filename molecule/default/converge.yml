@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include coaxial.scanserver"
+      include_role:
+        name: "coaxial.scanserver"
