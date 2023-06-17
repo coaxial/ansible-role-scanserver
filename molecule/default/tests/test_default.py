@@ -14,7 +14,7 @@ def test_saned_socket_config(host):
     file = host.file("/etc/systemd/system/saned.socket")
 
     assert file.exists
-    assert file.owner == 'root'
+    assert file.user == 'root'
     assert file.group == 'root'
     assert file.mode == 0o755
 
@@ -23,7 +23,7 @@ def test_saned_service_config(host):
     file = host.file("/etc/systemd/system/@saned.service")
 
     assert file.exists
-    assert file.owner == 'root'
+    assert file.user == 'root'
     assert file.group == 'root'
     assert file.mode == 0o755
 
@@ -35,11 +35,11 @@ def test_saned_service(host):
     assert service.is_running
 
 
-def test_saned_config
+def test_saned_config(host):
     file = host.file("/etc/sane.d/saned.conf")
 
     assert file.exists
-    assert file.owner == 'root'
+    assert file.user == 'root'
     assert file.group == 'root'
     assert file.mode == 0o755
-    assert '192.168.0.0/24' in file.contents
+    assert file.contains('192\.168\.0\.0\/24')
