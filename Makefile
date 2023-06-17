@@ -7,7 +7,7 @@ test: lint
 
 debug:
 	@PY_COLORS=1 molecule converge
-	@docker exec -it ubuntu2004 bash
+	@docker exec -it debian11 bash
 
 lint:
 	@PY_COLORS=1 ansible-lint .
