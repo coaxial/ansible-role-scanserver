@@ -1,2 +1,20 @@
 ---
-# tasks file for scanserver
+- name: "Update apt cache"
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 86400 # 24h
+
+- name: Install packages
+  ansible.builtin.package:
+    name:
+      - sane
+    state: present
+
+- name: Create saned socket
+  ansible.builtin.copy:
+    src: saned.socket
+    dest: /etc/systemd/system/saned.socket
+    owner: root
+    group: root
+    mode: 0755
+    state: present
